@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 0)
     public void loginWithoutUsername() {
-        this.driver.findElement(By.xpath("//a[@id='login2']")).click();
+        this.homePage.clickLogInButton();
         Utils.waitInSeconds(1);
         this.driver.findElement(By.xpath("//input[@id='loginpassword']"))
                 .sendKeys(Constants.PASSWORD);
