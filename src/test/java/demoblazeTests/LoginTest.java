@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
         this.logInPage=new LogInPage(this.driver);
     }
 
-    @Test
+    @Test(priority = 1)
     public void loginTest() {
        this.homePage.clickLogInButton();
         Utils.waitInSeconds(1);
@@ -36,9 +36,9 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(actualMessage.contains(Constants.WELCOME_MESSAGE));
     }
 
-    @Test
+    @Test(priority = 0)
     public void loginWithoutUsername() {
-        this.driver.findElement(By.xpath("//a[@id='login2']")).click();
+        this.homePage.clickLogInButton();
         Utils.waitInSeconds(1);
         this.driver.findElement(By.xpath("//input[@id='loginpassword']"))
                 .sendKeys(Constants.PASSWORD);
